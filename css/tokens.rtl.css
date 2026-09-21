@@ -1,0 +1,138 @@
+/* ==========================================================================
+   DESIGN TOKENS — Al Yamamah University · DBA
+   Brand anchors: charcoal #1F2328, orange #F28C28, light orange #FFF2E4,
+   light gray #F3F4F5, white. Orange is a strategic accent (~10%).
+   ========================================================================== */
+:root {
+  /* Neutral scale (charcoal, hue-biased toward the brand's cool grey) */
+  --ink-950: #0E1114;
+  --ink-900: #14181C;
+  --ink-800: #1F2328; /* brand charcoal */
+  --ink-700: #2A3036;
+  --ink-600: #3A4148;
+  --ink-500: #5A626B;
+  --ink-400: #8B929A;
+  --ink-300: #B4BAC1;
+  --ink-200: #D3D7DB;
+  --mist-100: #F3F4F5; /* brand light gray */
+  --mist-200: #E6E7E8;
+  --paper: #FFFFFF;
+  --sand: #FFF2E4;    /* brand light orange */
+  --sand-200: #FBE2C4;
+
+  /* Orange — one hue, tonal steps */
+  --orange: #F28C28;      /* brand */
+  --orange-hi: #FFA347;
+  --orange-600: #DC7A14;
+  --orange-700: #A85300;  /* orange for TEXT on light grounds (AA) */
+  --orange-300: #F8B872;
+
+  /* Type */
+  --font-display: 'Newsreader', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --font-body: 'Hanken Grotesk', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+
+  --fs-label: .75rem;
+  --fs-small: .9375rem;
+  --fs-body: 1.0625rem;
+  --fs-lead: clamp(1.15rem, 1.35vw + .6rem, 1.4rem);
+  --fs-h4: 1.125rem;
+  --fs-h3: clamp(1.5rem, 1.6vw + 1rem, 2.1rem);
+  --fs-h2: clamp(2.25rem, 4.4vw + .6rem, 4.6rem);
+  --fs-statement: clamp(1.5rem, 2.1vw + .9rem, 2.35rem);
+  --fs-data: clamp(3.4rem, 8.2vw, 8rem);
+
+  /* Space + layout */
+  --gutter: clamp(1.25rem, 4.2vw, 3.5rem);
+  --wrap: 1360px;
+  --sec-y: clamp(5rem, 11vw, 9.5rem);
+  --nav-h: 72px;
+  --radius: 3px;
+
+  /* Motion */
+  --ease: cubic-bezier(.22, .7, .2, 1);
+  --ease-io: cubic-bezier(.65, 0, .35, 1);
+
+  /* Saudi-geometric lattice (interlocking squares → eight-point star). Two tints. */
+  --pattern-on-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='rgb(255,255,255)' stroke-opacity='0.07' stroke-width='1'%3E%3Crect x='10' y='10' width='40' height='40'/%3E%3Crect x='10' y='10' width='40' height='40' transform='rotate(45 30 30)'/%3E%3C/g%3E%3C/svg%3E");
+  --pattern-on-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='rgb(31,35,40)' stroke-opacity='0.06' stroke-width='1'%3E%3Crect x='10' y='10' width='40' height='40'/%3E%3Crect x='10' y='10' width='40' height='40' transform='rotate(45 30 30)'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* --------------------------------------------------------------------------
+   TONES — every section declares one; components read the role tokens only.
+   -------------------------------------------------------------------------- */
+.tone-light {
+  --bg: var(--paper);
+  --surface: var(--mist-100);
+  --fg: var(--ink-800);
+  --fg-2: #444C54;
+  --fg-3: #616973;
+  --line: rgba(31, 35, 40, .14);
+  --line-strong: rgba(31, 35, 40, .34);
+  --accent: var(--orange);
+  --accent-ink: var(--orange-700);
+  --focus: var(--ink-800);
+  --pattern: var(--pattern-on-light);
+  background: var(--bg);
+  color: var(--fg);
+}
+.tone-mist {
+  --bg: var(--mist-100);
+  --surface: var(--paper);
+  --fg: var(--ink-800);
+  --fg-2: #444C54;
+  --fg-3: #5F6771;
+  --line: rgba(31, 35, 40, .14);
+  --line-strong: rgba(31, 35, 40, .34);
+  --accent: var(--orange);
+  --accent-ink: var(--orange-700);
+  --focus: var(--ink-800);
+  --pattern: var(--pattern-on-light);
+  background: var(--bg);
+  color: var(--fg);
+}
+.tone-sand {
+  --bg: var(--sand);
+  --surface: #FFF9F2;
+  --fg: var(--ink-800);
+  --fg-2: #444C54;
+  --fg-3: #5C5F63;
+  --line: rgba(31, 35, 40, .16);
+  --line-strong: rgba(31, 35, 40, .36);
+  --accent: var(--orange);
+  --accent-ink: var(--orange-700);
+  --focus: var(--ink-800);
+  --pattern: var(--pattern-on-light);
+  background: var(--bg);
+  color: var(--fg);
+}
+.tone-dark {
+  --bg: var(--ink-800);
+  --surface: var(--ink-700);
+  --fg: #F4F5F6;
+  --fg-2: #C2C7CD;
+  --fg-3: #9AA1A9;
+  --line: rgba(255, 255, 255, .14);
+  --line-strong: rgba(255, 255, 255, .32);
+  --accent: var(--orange);
+  --accent-ink: var(--orange);
+  --focus: var(--orange);
+  --pattern: var(--pattern-on-dark);
+  background: var(--bg);
+  color: var(--fg);
+}
+.tone-abyss {
+  --bg: var(--ink-950);
+  --surface: var(--ink-800);
+  --fg: #F4F5F6;
+  --fg-2: #C2C7CD;
+  --fg-3: #979EA6;
+  --line: rgba(255, 255, 255, .13);
+  --line-strong: rgba(255, 255, 255, .3);
+  --accent: var(--orange);
+  --accent-ink: var(--orange);
+  --focus: var(--orange);
+  --pattern: var(--pattern-on-dark);
+  background: var(--bg);
+  color: var(--fg);
+}

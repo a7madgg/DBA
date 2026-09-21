@@ -1,0 +1,14 @@
+/* Print — used by the curriculum "Print" action and browser print */
+@page { margin: 16mm; }
+body { background: #fff !important; color: #000 !important; font-size: 11pt; }
+.nav, .menu, .skip, .toast, .hero, .glance, .welcome__pattern, .audience__pattern, .cap__pattern, .proc__pattern,
+.fin__cols, .intake__glow, .journey__grid-bg, .research__pin, .book__stage, .ctrl, .ctrl__status { display: none !important; }
+[data-reveal], .js [data-reveal] { opacity: 1 !important; transform: none !important; }
+section { break-inside: avoid-page; padding-block: 1.2rem !important; background: #fff !important; color: #000 !important; }
+.course__panel, .qa__p { grid-template-rows: 1fr !important; visibility: visible !important; }
+.course__inner { overflow: visible !important; }
+.term[hidden] { display: block !important; }
+.plan__head { display: grid; }
+* { color: #000 !important; -webkit-text-stroke: 0 !important; }
+a { text-decoration: none; }
+.research__steps .rstep { min-height: 0; opacity: 1; }

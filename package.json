@@ -1,0 +1,13 @@
+{
+  "name": "al-yamamah-dba-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Official Doctor of Business Administration website — Al Yamamah University (English / Arabic)",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "rtl": "node tools/build-rtl.js"
+  },
+  "devDependencies": {
+    "rtlcss": "^4.3.0"
+  }
+}

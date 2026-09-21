@@ -1,0 +1,98 @@
+/* ==========================================================================
+   ARABIC — typography for html[lang="ar"], plus direction-specific fixes for
+   html[dir="rtl"] that the automatic LTR→RTL flip cannot infer.
+   The flipped sheets (*.rtl.css) are generated from the LTR sheets; this file
+   sits on top of them.
+   ========================================================================== */
+
+/* ------------------------------ TYPOGRAPHY ------------------------------ */
+html[lang="ar"] {
+  --font-display: 'Amiri', 'Noto Naskh Arabic', 'Newsreader', Georgia, serif;
+  --font-body: 'IBM Plex Sans Arabic', 'Hanken Grotesk', 'Segoe UI', Tahoma, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'IBM Plex Sans Arabic', ui-monospace, monospace;
+}
+/* Arabic is a connected script: never letter-space it, never force case. */
+html[lang="ar"] *, html[lang="ar"] *::before, html[lang="ar"] *::after { letter-spacing: 0 !important; text-transform: none !important; }
+html[lang="ar"] em, html[lang="ar"] i { font-style: normal; }
+html[lang="ar"] body { line-height: 1.85; }
+
+html[lang="ar"] .display, html[lang="ar"] .h2, html[lang="ar"] .h3, html[lang="ar"] .statement { font-weight: 400; text-wrap: balance; }
+html[lang="ar"] .display { line-height: 1.32; }
+html[lang="ar"] .h2 { line-height: 1.34; }
+html[lang="ar"] .h3 { line-height: 1.45; }
+html[lang="ar"] .statement { line-height: 1.7; }
+html[lang="ar"] .lead { line-height: 1.8; }
+html[lang="ar"] .prose { line-height: 1.95; }
+html[lang="ar"] .small { line-height: 1.75; }
+
+/* Labels were tiny letter-spaced capitals; in Arabic they need real size. */
+html[lang="ar"] .label, html[lang="ar"] .eyebrow { font-size: .9rem; font-weight: 600; }
+html[lang="ar"] .btn { font-size: 1.02rem; }
+
+/* ------------------------------ RTL GEOMETRY ------------------------------ */
+/* Generative canvases are drawn left-to-right; mirror them so the composition
+   sits opposite the (now right-aligned) copy and ascending forms rise toward the reading end. */
+html[dir="rtl"] .hero__canvas, html[dir="rtl"] #researchCanvas { transform: scaleX(-1); }
+
+/* Directional icons */
+html[dir="rtl"] svg.i-arrow, html[dir="rtl"] .linkline > svg { scale: -1 1; }
+
+/* ------------------------------ ARABIC POLISH ------------------------------ */
+html[lang="ar"] { font-size: 108%; }
+html[lang="ar"] * { font-style: normal !important; }
+html[lang="ar"] .statement { font-size: calc(var(--fs-statement) * .86); }
+html[lang="ar"] .frame__t { line-height: 1.3; }
+html[lang="ar"] .frame__step p { line-height: 1.75; }
+html[lang="ar"] .booklet__name { line-height: 1.3; }
+html[lang="ar"] .booklet__kicker, html[lang="ar"] .booklet__foot { font-size: .82rem; }
+html[lang="ar"] .booklet__sub { font-size: 1.3rem; }
+
+/* Arrows drawn as text glyphs */
+html[dir="rtl"] .frame__step::after { content: "←"; right: auto; left: -1.15rem; }
+html[dir="rtl"] .frame__step + .frame__step { border-left-width: 1px; border-right-width: 0; }
+
+/* Decorative glows / masks whose focal point must sit opposite the copy */
+html[dir="rtl"] .hero__stage {
+  background:
+    radial-gradient(90% 70% at 24% 18%, rgba(242, 140, 40, .10), transparent 60%),
+    radial-gradient(120% 90% at 22% 8%, #2b3138 0%, var(--ink-900) 52%, var(--ink-950) 100%);
+}
+html[dir="rtl"] .cap__pattern { -webkit-mask-image: radial-gradient(60% 70% at 28% 50%, #000, transparent); mask-image: radial-gradient(60% 70% at 28% 50%, #000, transparent); }
+html[dir="rtl"] .welcome__pattern { -webkit-mask-image: radial-gradient(70% 70% at 28% 28%, #000, transparent); mask-image: radial-gradient(70% 70% at 28% 28%, #000, transparent); }
+
+/* Orbit: nodes are placed with physical geometry (kept LTR); labels align to their node side */
+@media (min-width: 1041px) {
+  html[dir="rtl"] [data-side="r"] .node__label { text-align: left; direction: rtl; }
+  html[dir="rtl"] [data-side="l"] .node__label { text-align: right; }
+}
+
+/* Supervisor-matching diagram: criteria on the reading start, outcome at the end */
+html[dir="rtl"] .match__svg { transform: scaleX(-1); }
+
+/* Booklet mock: 4-value inset is not auto-flipped; pages edge belongs opposite the (right-hand) spine */
+html[dir="rtl"] .booklet__pages { inset: 1.2% 3.2% -1.2% -3.6%; }
+
+/* Hover nudge follows the mirrored arrow direction */
+html[dir="rtl"] .btn--primary:hover .i-arrow { transform: translateX(-4px); }
+html[dir="rtl"] .linkline:hover svg { transform: translateX(-3px); }
+
+/* Micro-labels: the Latin sizes (0.6–0.75rem) are unreadable in Arabic script */
+html[lang="ar"] .reqtable thead th, html[lang="ar"] .meter__txt span, html[lang="ar"] .hero__facts span,
+html[lang="ar"] .phases__list, html[lang="ar"] .fact__l, html[lang="ar"] .plan__head, html[lang="ar"] .course__meta dt,
+html[lang="ar"] .tag, html[lang="ar"] .research__ticks button, html[lang="ar"] .tower__yr span,
+html[lang="ar"] .stair__axis, html[lang="ar"] .ledger thead th, html[lang="ar"] .ledger thead .num { font-size: .86rem; font-weight: 500; }
+
+/* Mobile nav: the 108% root and larger Arabic button text need a tighter bar */
+@media (max-width: 560px) {
+  html[lang="ar"] .nav__apply { font-size: .88rem; padding: .5rem .7rem; }
+  html[lang="ar"] .nav__inner { gap: .45rem; }
+  html[lang="ar"] .nav__lang { padding: .4rem .55rem; }
+}
+@media (max-width: 400px) {
+  html[lang="ar"] .nav__brand { width: 108px; }
+}
+
+/* Orbit list mode (<=1040px): the desktop orbit geometry is direction-locked, so release its offsets */
+@media (max-width: 1040px) {
+  html[dir="rtl"] .node, html[dir="rtl"] [data-side] .node__label { left: auto; right: auto; }
+}
