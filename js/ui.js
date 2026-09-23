@@ -27,7 +27,8 @@
   var LINKS = {
     apply: { url: cfg.applyUrl, name: 'link.apply', go: '#intake' },
     booklet: { url: cfg.bookletUrl, name: 'link.booklet', go: '#booklet' },
-    curriculum: { url: cfg.curriculumPdfUrl, name: 'link.curriculum', go: null }
+    curriculum: { url: cfg.curriculumPdfUrl, name: 'link.curriculum', go: null },
+    privacy: { url: cfg.privacyUrl, name: 'link.privacy', go: null }
   };
   $$('[data-link]').forEach(function (a) {
     var L = LINKS[a.getAttribute('data-link')];

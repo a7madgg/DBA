@@ -10,6 +10,8 @@ window.DBA_CONFIG = {
   bookletUrl: '',
   // Optional standalone curriculum PDF
   curriculumPdfUrl: '',
+  // University privacy policy page
+  privacyUrl: '',
   // Spring 2027 intake window (ISO dates) — drives the live status line in "Intake & Fees"
   intake: { opens: '2026-10-01', deadline: '2026-12-15' }
 };

@@ -20,6 +20,7 @@
     'link.apply': 'official Graduate Admissions application portal',
     'link.booklet': 'program booklet PDF',
     'link.curriculum': 'curriculum PDF',
+    'link.privacy': 'University privacy policy page',
     'print.unavailable': 'Printing is not available in this preview. Use your browser’s print command.',
     'plan.status': function (courses, credits, all) { return (all ? 'Showing all ' : 'Showing ') + plural(courses, 'course', 'courses') + ' · ' + credits + ' credits'; },
     'expand.all': 'Expand all',
