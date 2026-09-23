@@ -56,6 +56,12 @@
     ['faq', 'faq']
   ].map(function (p) { return [doc.getElementById(p[0]), p[1]]; }).filter(function (p) { return p[0]; });
 
+  var railLinks = $$('.rail__nav [data-spy]');
+  var RAIL_SPY = railLinks.map(function (a) {
+    var id = a.getAttribute('data-spy'), el = doc.getElementById(id);
+    return el ? [el, id] : null;
+  }).filter(Boolean);
+
   var navTicking = false;
   function navUpdate() {
     navTicking = false;
@@ -80,6 +86,16 @@
     }
     spyLinks.forEach(function (a) {
       if (a.getAttribute('data-spy') === active) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+
+    var railActive = null;
+    for (var k = 0; k < RAIL_SPY.length; k++) {
+      var rr = RAIL_SPY[k][0].getBoundingClientRect();
+      if (rr.top <= mid && rr.bottom > mid) { railActive = RAIL_SPY[k][1]; break; }
+    }
+    railLinks.forEach(function (a) {
+      if (a.getAttribute('data-spy') === railActive) a.setAttribute('aria-current', 'true');
       else a.removeAttribute('aria-current');
     });
   }
