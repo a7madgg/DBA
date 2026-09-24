@@ -32,15 +32,15 @@
   --font-body: 'Hanken Grotesk', 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
 
-  --fs-label: .75rem;
-  --fs-small: .9375rem;
-  --fs-body: 1.0625rem;
-  --fs-lead: clamp(1.15rem, 1.35vw + .6rem, 1.4rem);
-  --fs-h4: 1.125rem;
-  --fs-h3: clamp(1.4rem, 1.3vw + 1rem, 1.85rem);
-  --fs-h2: clamp(2.1rem, 3vw + .6rem, 3.6rem);
-  --fs-statement: clamp(1.4rem, 1.4vw + .9rem, 2rem);
-  --fs-data: clamp(3rem, 6vw, 6.2rem);
+  --fs-label: .72rem;
+  --fs-small: .875rem;
+  --fs-body: .975rem;
+  --fs-lead: clamp(1.04rem, 1.05vw + .58rem, 1.22rem);
+  --fs-h4: 1.04rem;
+  --fs-h3: clamp(1.25rem, 1.05vw + .92rem, 1.6rem);
+  --fs-h2: clamp(1.8rem, 2.5vw + .55rem, 3.05rem);
+  --fs-statement: clamp(1.22rem, 1.1vw + .8rem, 1.72rem);
+  --fs-data: clamp(2.6rem, 5.1vw, 5.3rem);
 
   /* Space + layout */
   --gutter: clamp(1.25rem, 4.2vw, 3.5rem);

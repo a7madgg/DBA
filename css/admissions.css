@@ -175,6 +175,11 @@
 
 /* ------------------------------ FINAL CTA ------------------------------ */
 .fin { position: relative; overflow: hidden; padding-block: clamp(5rem, 9vw, 8.5rem); }
+.fin__photo {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(180deg, rgba(14, 17, 20, .58) 0%, rgba(14, 17, 20, .84) 62%, var(--ink-950) 100%), url("../assets/photos/campus-entrance.jpg");
+  background-size: cover; background-position: center 42%;
+}
 .fin__cols { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: flex-end; gap: clamp(.5rem, 1.6vw, 1.6rem); padding-right: clamp(1rem, 5vw, 5rem); pointer-events: none; }
 .fin__cols i {
   display: block; width: clamp(26px, 5.2vw, 84px); background: linear-gradient(180deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .01)); border-top: 2px solid rgba(255, 255, 255, .22);

@@ -11,7 +11,7 @@ body {
   color: var(--ink-800);
   font-family: var(--font-body);
   font-size: var(--fs-body);
-  line-height: 1.65;
+  line-height: 1.6;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -59,7 +59,7 @@ table { border-collapse: collapse; width: 100%; }
   text-wrap: balance;
   font-optical-sizing: auto;
 }
-.display { font-size: clamp(2.3rem, min(4.6vw, 8.2vh), 4.6rem); line-height: 1.04; }
+.display { font-size: clamp(2rem, min(3.9vw, 7vh), 3.9rem); line-height: 1.06; }
 .h2 { font-size: var(--fs-h2); line-height: 1.04; }
 .h3 { font-size: var(--fs-h3); line-height: 1.16; font-weight: 400; letter-spacing: -0.01em; }
 .display em, .h2 em, .h3 em, .statement em { font-style: italic; font-weight: 300; color: var(--accent-ink); }
