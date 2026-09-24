@@ -44,23 +44,39 @@
     });
   });
 
-  /* ---------- Navigation: solid-on-scroll, tone-aware, scroll-spy ---------- */
+  /* ---------- Navigation: solid-on-scroll, tone-aware, scroll-spy, editorial marker ---------- */
   var nav = $('#nav'), menu = $('#menu'), menuBtn = $('#menuBtn');
   var menuOpen = false;
   var spyLinks = $$('.nav__links [data-spy]');
+  var navActive = $('#navActive'), navLinksEl = $('#navLinks');
+  var navGlyph = $('#navGlyph');
+  var glyphSvgs = navGlyph ? $$('svg', navGlyph) : [];
   var SPY = [
-    ['overview', 'overview'], ['audience', 'overview'], ['journey', 'overview'], ['architecture', 'overview'],
+    ['overview', 'overview'], ['audience', 'overview'],
+    ['architecture', 'architecture'],
     ['curriculum', 'curriculum'],
     ['research', 'research'], ['supervision', 'research'], ['capabilities', 'research'], ['focus', 'research'],
     ['admissions', 'admissions'], ['documents', 'admissions'], ['process', 'admissions'], ['intake', 'admissions'], ['faculty', 'admissions'],
-    ['faq', 'faq']
+    ['journey', 'journey'],
+    ['faq', 'faq'], ['booklet', 'faq'],
+    ['contact', 'contact']
   ].map(function (p) { return [doc.getElementById(p[0]), p[1]]; }).filter(function (p) { return p[0]; });
 
-  var railLinks = $$('.rail__nav [data-spy]');
-  var RAIL_SPY = railLinks.map(function (a) {
-    var id = a.getAttribute('data-spy'), el = doc.getElementById(id);
-    return el ? [el, id] : null;
-  }).filter(Boolean);
+  var lastActive = null;
+  function positionMarker(link) {
+    if (!navActive || !navLinksEl) return;
+    if (!link) { navActive.classList.remove('is-on'); return; }
+    var lr = link.getBoundingClientRect(), pr = navLinksEl.getBoundingClientRect();
+    var rtl = root.getAttribute('dir') === 'rtl';
+    var offset = rtl ? (pr.right - lr.right) : (lr.left - pr.left);
+    navActive.style.width = lr.width + 'px';
+    navActive.style.transform = 'translateX(' + Math.round(offset) + 'px)';
+    navActive.classList.add('is-on');
+  }
+  function setGlyph(group) {
+    if (!glyphSvgs.length) return;
+    glyphSvgs.forEach(function (s) { s.classList.toggle('is-on', s.getAttribute('data-g') === group); });
+  }
 
   var navTicking = false;
   function navUpdate() {
@@ -84,20 +100,20 @@
       var r = SPY[j][0].getBoundingClientRect();
       if (r.top <= mid && r.bottom > mid) { active = SPY[j][1]; break; }
     }
+    var activeLink = null;
     spyLinks.forEach(function (a) {
-      if (a.getAttribute('data-spy') === active) a.setAttribute('aria-current', 'true');
+      if (a.getAttribute('data-spy') === active) { a.setAttribute('aria-current', 'true'); activeLink = a; }
       else a.removeAttribute('aria-current');
     });
-
-    var railActive = null;
-    for (var k = 0; k < RAIL_SPY.length; k++) {
-      var rr = RAIL_SPY[k][0].getBoundingClientRect();
-      if (rr.top <= mid && rr.bottom > mid) { railActive = RAIL_SPY[k][1]; break; }
+    if (active !== lastActive) {
+      lastActive = active;
+      if (activeLink) {
+        var itemEl = activeLink.closest('.nav__item');
+        setGlyph((itemEl && itemEl.getAttribute('data-group')) || 'mark');
+      }
     }
-    railLinks.forEach(function (a) {
-      if (a.getAttribute('data-spy') === railActive) a.setAttribute('aria-current', 'true');
-      else a.removeAttribute('aria-current');
-    });
+    if (activeLink && window.matchMedia('(min-width: 1061px)').matches) positionMarker(activeLink);
+    else if (navActive) navActive.classList.remove('is-on');
   }
   function queueNav() { if (!navTicking) { navTicking = true; requestAnimationFrame(navUpdate); } }
   window.addEventListener('scroll', queueNav, { passive: true });

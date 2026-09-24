@@ -39,67 +39,89 @@
 
 <a data-i18n="g.3" class="skip" href="#main">Skip to main content</a>
 
-<!-- ============================ SIDE RAIL (desktop) ============================ -->
-<aside data-i18n-attr="aria-label:rail.aria" class="siderail tone-abyss" id="rail" aria-label="Section navigation">
-  <a data-i18n-attr="aria-label:nav.a1" class="rail__brand" href="#top" aria-label="Al Yamamah University, Doctor of Business Administration — back to top">
-    <img src="assets/yu-logo-white.png" alt="" width="1304" height="263">
-  </a>
-
-  <nav class="rail__nav" data-i18n-attr="aria-label:nav.a2" aria-label="Primary">
-    <p data-i18n="rail.g1" class="rail__g">The Program</p>
-    <ul>
-      <li><a data-i18n="nav.4" href="#overview" data-spy="overview">The DBA</a></li>
-      <li><a data-i18n="menu.3" href="#journey" data-spy="journey">The Executive Journey</a></li>
-      <li><a data-i18n="architecture.2" href="#architecture" data-spy="architecture">Program architecture</a></li>
-      <li><a data-i18n="nav.5" href="#curriculum" data-spy="curriculum">Curriculum</a></li>
-      <li><a data-i18n="menu.5" href="#research" data-spy="research">Applied Research</a></li>
-      <li><a data-i18n="supervision.2" href="#supervision" data-spy="supervision">Supervision and quality assurance</a></li>
-      <li><a data-i18n="capabilities.2" href="#capabilities" data-spy="capabilities">Graduate capabilities</a></li>
-      <li><a data-i18n="rail.focus" href="#focus" data-spy="focus">Focus Areas</a></li>
-    </ul>
-
-    <p data-i18n="rail.g2" class="rail__g">Admissions</p>
-    <ul>
-      <li><a data-i18n="foot.c3.1" href="#admissions" data-spy="admissions">Admission Requirements</a></li>
-      <li><a data-i18n="foot.c3.2" href="#documents" data-spy="documents">Required Documents</a></li>
-      <li><a data-i18n="foot.c3.3" href="#process" data-spy="process">Application Process</a></li>
-      <li><a data-i18n="foot.c3.4" href="#intake" data-spy="intake">Intake &amp; Fees</a></li>
-    </ul>
-
-    <p data-i18n="rail.g3" class="rail__g">More</p>
-    <ul>
-      <li><a data-i18n="nav.8" href="#faq" data-spy="faq">FAQs</a></li>
-      <li><a data-i18n="booklet.2" href="#booklet" data-spy="booklet">Program booklet</a></li>
-      <li><a data-i18n="rail.contact" href="#contact" data-spy="contact">Contact</a></li>
-      <li><a data-i18n="nav.3" href="https://yu.edu.sa/academics/postgraduate/" target="_blank" rel="noopener">Academics<svg class="ico" aria-hidden="true"><use href="#i-ext"/></svg><span class="sr-only"> (opens the Postgraduate Studies site)</span></a></li>
-    </ul>
-  </nav>
-
-  <div class="rail__foot">
-    <button class="rail__lang" type="button" data-lang-toggle lang="ar" aria-label="التبديل إلى اللغة العربية">
-      <svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg><span data-lang-full>العربية</span>
-    </button>
-    <a data-i18n="nav.9" class="btn btn--primary btn--sm rail__apply" href="#apply" data-link="apply">Apply Now</a>
-  </div>
-</aside>
-
-<!-- ============================ NAVIGATION ============================ -->
+<!-- ============================ EDITORIAL NAVIGATION ============================ -->
 <header class="nav" id="nav" data-nav="dark">
   <div class="nav__inner">
     <a data-i18n-attr="aria-label:nav.a1" class="nav__brand" href="#top" aria-label="Al Yamamah University, Doctor of Business Administration — back to top">
       <img class="nav__logo nav__logo--white" src="assets/yu-logo-white.png" alt="" width="1304" height="263">
       <img class="nav__logo nav__logo--color" src="assets/yu-logo-color.png" alt="" width="1277" height="246">
     </a>
-    <nav data-i18n-attr="aria-label:nav.a2" class="nav__links" aria-label="Primary">
+
+    <span class="nav__glyph" id="navGlyph" aria-hidden="true">
+      <svg data-g="mark" class="is-on" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><rect x="14" y="14" width="6" height="6"/></svg>
+      <svg data-g="grid" viewBox="0 0 24 24"><path d="M4 9h16M4 15h16M9 4v16M15 4v16"/></svg>
+      <svg data-g="nodes" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="6" r="1.6"/><circle cx="12" cy="18" r="1.6"/><circle cx="19" cy="12" r="1.6"/><path d="M6.4 11.2L10.8 6.8M6.4 12.8L10.8 17.2M13.2 6.8L17.6 11.2M13.2 17.2L17.6 12.8"/></svg>
+      <svg data-g="path" viewBox="0 0 24 24"><path d="M4 18c4 0 4-12 8-12s4 12 8 12"/><circle cx="4" cy="18" r="1.4"/><circle cx="20" cy="18" r="1.4"/></svg>
+    </span>
+
+    <nav data-i18n-attr="aria-label:nav.a2" class="nav__links" id="navLinks" aria-label="Primary">
+      <span class="nav__active" id="navActive" aria-hidden="true"></span>
       <ul>
-        <li><a data-i18n="nav.3" href="https://yu.edu.sa/academics/postgraduate/" target="_blank" rel="noopener">Academics<svg class="ico" aria-hidden="true"><use href="#i-ext"/></svg><span class="sr-only"> (opens the Postgraduate Studies site)</span></a></li>
-        <li><a data-i18n="nav.4" href="#overview" data-spy="overview">The DBA</a></li>
-        <li><a data-i18n="nav.5" href="#curriculum" data-spy="curriculum">Curriculum</a></li>
-        <li><a data-i18n="nav.6" href="#research" data-spy="research">Research</a></li>
-        <li><a data-i18n="nav.7" href="#admissions" data-spy="admissions">Admissions</a></li>
-        <li><a data-i18n="nav.8" href="#faq" data-spy="faq">FAQs</a></li>
+        <li class="nav__item" data-group="mark">
+          <a data-i18n="ednav.1" href="#overview" data-spy="overview" class="nav__link">The DBA</a>
+          <div class="nav__preview nav__preview--mark" aria-hidden="true">
+            <svg class="nav__preview-art" viewBox="0 0 120 46" aria-hidden="true"><rect x="4" y="6" width="10" height="34"/><rect x="20" y="16" width="10" height="24"/><rect x="36" y="2" width="10" height="38"/><rect x="52" y="20" width="10" height="20"/></svg>
+            <p data-i18n="ednav.1p" class="nav__preview-line">A professional doctorate for experienced leaders</p>
+          </div>
+        </li>
+        <li class="nav__item" data-group="grid">
+          <a data-i18n="ednav.2" href="#architecture" data-spy="architecture" class="nav__link">Program</a>
+          <div class="nav__preview nav__preview--stats" aria-hidden="true">
+            <ul class="nav__stats">
+              <li><b class="tnum">3</b><span data-i18n="ednav.2a">Years</span></li>
+              <li><b class="tnum">42</b><span data-i18n="ednav.2b">Credits</span></li>
+              <li><b class="tnum">8</b><span data-i18n="ednav.2c">NQF Level</span></li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav__item" data-group="grid">
+          <a data-i18n="ednav.3" href="#curriculum" data-spy="curriculum" class="nav__link">Curriculum</a>
+          <div class="nav__preview nav__preview--grid" aria-hidden="true">
+            <div class="nav__mini-grid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <p data-i18n="ednav.3p" class="nav__preview-line">Three years · six semesters · twelve courses</p>
+          </div>
+        </li>
+        <li class="nav__item" data-group="nodes">
+          <a data-i18n="ednav.4" href="#research" data-spy="research" class="nav__link">Research</a>
+          <div class="nav__preview nav__preview--flow" aria-hidden="true">
+            <ol class="nav__flow">
+              <li data-i18n="ednav.4a">Challenge</li><li data-i18n="ednav.4b">Evidence</li><li data-i18n="ednav.4c">Method</li>
+              <li data-i18n="ednav.4d">Analysis</li><li data-i18n="ednav.4e">Solution</li><li data-i18n="ednav.4f">Impact</li>
+            </ol>
+          </div>
+        </li>
+        <li class="nav__item" data-group="path">
+          <a data-i18n="ednav.5" href="#admissions" data-spy="admissions" class="nav__link">Admissions</a>
+          <div class="nav__preview nav__preview--list" aria-hidden="true">
+            <ul class="nav__preview-steps">
+              <li data-i18n="ednav.5a">Eligibility</li><li data-i18n="ednav.5b">Required documents</li>
+              <li data-i18n="ednav.5c">Application process</li><li data-i18n="ednav.5d">Fees &amp; intake</li>
+            </ul>
+          </div>
+        </li>
+        <li class="nav__item" data-group="path">
+          <a data-i18n="ednav.6" href="#journey" data-spy="journey" class="nav__link">Executive Experience</a>
+          <div class="nav__preview nav__preview--years" aria-hidden="true">
+            <ol class="nav__years">
+              <li><b>01</b><span data-i18n="ednav.6a">Build</span></li>
+              <li><b>02</b><span data-i18n="ednav.6b">Develop</span></li>
+              <li><b>03</b><span data-i18n="ednav.6c">Apply</span></li>
+            </ol>
+          </div>
+        </li>
+        <li class="nav__item" data-group="mark">
+          <a data-i18n="ednav.7" href="#faq" data-spy="faq" class="nav__link">FAQs</a>
+        </li>
+        <li class="nav__item" data-group="mark">
+          <a data-i18n="ednav.8" href="#contact" data-spy="contact" class="nav__link">Contact</a>
+          <div class="nav__preview nav__preview--contact" aria-hidden="true">
+            <p class="nav__preview-line"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg><bdi dir="ltr">dba@yu.edu.sa</bdi></p>
+            <p class="nav__preview-line"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg><span data-i18n="ednav.8b">Riyadh</span></p>
+          </div>
+        </li>
       </ul>
     </nav>
+
     <button class="nav__lang" type="button" data-lang-toggle lang="ar" aria-label="التبديل إلى اللغة العربية">
       <svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg><span data-lang-full>العربية</span><span data-lang-short aria-hidden="true">ع</span>
     </button>
@@ -111,36 +133,24 @@
   </div>
 </header>
 
+<!-- ============================ MOBILE FULL-SCREEN NAV ============================ -->
 <div class="menu tone-abyss" id="menu" hidden>
   <div class="menu__inner">
     <p data-i18n="menu.1" class="label">Doctor of Business Administration</p>
-
-    <p data-i18n="rail.g1" class="menu__g">The Program</p>
-    <ul class="menu__list">
-      <li><a data-i18n="menu.2" href="#overview">The DBA</a></li>
-      <li><a data-i18n="menu.3" href="#journey">The Executive Journey</a></li>
-      <li><a data-i18n="architecture.2" href="#architecture">Program architecture</a></li>
-      <li><a data-i18n="menu.4" href="#curriculum">Curriculum</a></li>
-      <li><a data-i18n="menu.5" href="#research">Applied Research</a></li>
-      <li><a data-i18n="supervision.2" href="#supervision">Supervision and quality assurance</a></li>
-      <li><a data-i18n="capabilities.2" href="#capabilities">Graduate capabilities</a></li>
-      <li><a data-i18n="rail.focus" href="#focus">Focus Areas</a></li>
-    </ul>
-
-    <p data-i18n="rail.g2" class="menu__g">Admissions</p>
-    <ul class="menu__list">
-      <li><a data-i18n="foot.c3.1" href="#admissions">Admission Requirements</a></li>
-      <li><a data-i18n="foot.c3.2" href="#documents">Required Documents</a></li>
-      <li><a data-i18n="foot.c3.3" href="#process">Application Process</a></li>
-      <li><a data-i18n="foot.c3.4" href="#intake">Intake &amp; Fees</a></li>
-    </ul>
-
+    <ol class="menu__list">
+      <li><a data-i18n="ednav.1" href="#overview"><i class="menu__num tnum">01</i><span>The DBA</span></a></li>
+      <li><a data-i18n="ednav.2" href="#architecture"><i class="menu__num tnum">02</i><span>Program</span></a></li>
+      <li><a data-i18n="ednav.3" href="#curriculum"><i class="menu__num tnum">03</i><span>Curriculum</span></a></li>
+      <li><a data-i18n="ednav.4" href="#research"><i class="menu__num tnum">04</i><span>Research</span></a></li>
+      <li><a data-i18n="ednav.5" href="#admissions"><i class="menu__num tnum">05</i><span>Admissions</span></a></li>
+      <li><a data-i18n="ednav.6" href="#journey"><i class="menu__num tnum">06</i><span>Executive Experience</span></a></li>
+      <li><a data-i18n="ednav.7" href="#faq"><i class="menu__num tnum">07</i><span>FAQs</span></a></li>
+      <li><a data-i18n="ednav.8" href="#contact"><i class="menu__num tnum">08</i><span>Contact</span></a></li>
+    </ol>
     <p data-i18n="rail.g3" class="menu__g">More</p>
-    <ul class="menu__list">
-      <li><a data-i18n="menu.7" href="#faq">FAQs</a></li>
+    <ul class="menu__more">
       <li><a data-i18n="booklet.2" href="#booklet">Program booklet</a></li>
-      <li><a data-i18n="rail.contact" href="#contact">Contact</a></li>
-      <li><a data-i18n="menu.8" href="https://yu.edu.sa/academics/postgraduate/" target="_blank" rel="noopener">Academics <span class="sr-only">(opens the Postgraduate Studies site)</span></a></li>
+      <li><a data-i18n="nav.3" href="https://yu.edu.sa/academics/postgraduate/" target="_blank" rel="noopener">Academics <span class="sr-only">(opens the Postgraduate Studies site)</span></a></li>
     </ul>
     <button class="menu__lang" type="button" data-lang-toggle lang="ar" aria-label="التبديل إلى اللغة العربية">
       <svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg><span data-lang-full>العربية</span>
